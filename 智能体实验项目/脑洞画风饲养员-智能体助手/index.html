@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>脑洞 &amp; 画风饲养员</title>
+<style>
+:root{
+  --ink:#101312;
+  --ink2:#3B423F;
+  --muted:#6E7772;
+  --line:#E2E7E4;
+  --line2:#EFF2F0;
+  --canvas:#EFF1EF;
+  --surface:#FFFFFF;
+  --surface2:#F7F9F8;
+  --green:#00A96E;
+  --green-d:#00875A;
+  --coral:#FF5C39;
+  --blue:#2D6CFF;
+  --amber:#E8A317;
+  --violet:#7C5CFF;
+  --r:8px;
+  --shadow:0 1px 2px rgba(16,19,18,.05), 0 10px 28px rgba(16,19,18,.055);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font);
+  background:var(--canvas);
+  color:var(--ink);
+  font-size:14px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0;font-weight:650;letter-spacing:0;line-height:1.35}
+p{margin:0}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+.ic{width:18px;height:18px;flex:0 0 auto;display:block}
+/* ---------- shell ---------- */
+.app{display:grid;grid-template-columns:224px minmax(0,1fr);min-height:100vh}
+.rail{
+  background:var(--surface);
+  border-right:1px solid var(--line);
+  padding:20px 14px;
+  position:sticky;top:0;height:100vh;
+  display:flex;flex-direction:column;gap:4px;
+}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 18px}
+.brand-mark{
+  width:34px;height:34px;border-radius:var(--r);flex:0 0 auto;
+  background:linear-gradient(140deg,var(--green),#39D98A 45%,var(--amber));
+  display:grid;place-items:center;color:#fff;
+}
+.brand-mark .ic{width:19px;height:19px}
+.brand-text{min-width:0}
+.brand-name{font-size:14.5px;font-weight:700;white-space:nowrap}
+.brand-sub{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.navlabel{font-size:11px;color:var(--muted);letter-spacing:.08em;padding:12px 10px 6px}
+.nav-btn{
+  display:flex;align-items:center;gap:10px;
+  width:100%;padding:9px 10px;border:0;background:transparent;
+  border-radius:var(--r);cursor:pointer;color:var(--ink2);
+  text-align:left;font-weight:550;
+}
+.nav-btn:hover{background:var(--surface2)}
+.nav-btn[aria-current="true"]{background:#E9F7F1;color:var(--green-d)}
+.nav-btn[aria-current="true"] .ic{color:var(--green)}
+.rail-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line2)}
+.rail-stat{display:flex;align-items:center;gap:9px;padding:8px 10px;color:var(--muted);font-size:12.5px}
+.rail-stat b{color:var(--ink);font-size:14px}
+.main{padding:26px 30px 60px;min-width:0}
+.main-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.main-title{font-size:21px}
+.main-desc{color:var(--muted);font-size:13px;margin-top:3px}
+.head-actions{display:flex;gap:8px;align-items:center}
+/* ---------- primitives ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.card + .card{margin-top:14px}
+.card-h{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.card-h h3{font-size:14.5px}
+.card-h .ic{color:var(--green)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:start}
+.stack{display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.field:last-child{margin-bottom:0}
+.field > label{font-size:12.5px;font-weight:600;color:var(--ink2)}
+.hint{font-size:12px;color:var(--muted);line-height:1.55}
+input[type="text"],textarea,select{
+  width:100%;background:var(--surface2);border:1px solid var(--line);
+  border-radius:var(--r);padding:10px 12px;outline:none;transition:border-color .15s,background .15s;
+}
+input[type="text"]:focus,textarea:focus,select:focus{border-color:var(--green);background:#fff}
+textarea{resize:vertical;min-height:92px;line-height:1.65}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 17px) 50%,calc(100% - 12px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:34px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:9px 14px;border:1px solid var(--line);background:var(--surface);
+  border-radius:var(--r);cursor:pointer;font-weight:600;color:var(--ink2);
+  transition:background .15s,border-color .15s,transform .06s;
+}
+.btn:hover{background:var(--surface2);border-color:#D3DAD6}
+.btn:active{transform:translateY(1px)}
+.btn .ic{width:16px;height:16px}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.primary:hover{background:var(--green-d);border-color:var(--green-d)}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--muted);padding:7px 9px}
+.btn.ghost:hover{background:var(--surface2);color:var(--ink)}
+.btn.danger:hover{border-color:#F5C6BC;background:#FFF4F1;color:var(--coral)}
+.btn.sm{padding:6px 10px;font-size:12.5px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  border:1px solid var(--line);background:var(--surface);color:var(--ink2);
+  border-radius:6px;padding:5px 10px;font-size:12.5px;cursor:pointer;
+  transition:all .14s;font-weight:550;
+}
+.chip:hover{border-color:#C9D2CD}
+.chip[aria-pressed="true"]{background:#E9F7F1;border-color:#9FDDC4;color:var(--green-d)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface2)}
+.seg button{
+  border:0;background:transparent;padding:7px 13px;cursor:pointer;font-weight:600;
+  color:var(--muted);border-right:1px solid var(--line);font-size:13px;
+}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+/* ---------- drop ---------- */
+.drop{
+  border:1.5px dashed #CBD5D0;border-radius:var(--r);background:var(--surface2);
+  padding:26px 18px;text-align:center;cursor:pointer;transition:.15s;
+}
+.drop:hover,.drop.over{border-color:var(--green);background:#EFFBF6}
+.drop .ic{width:26px;height:26px;margin:0 auto 8px;color:var(--green)}
+.drop-t{font-weight:600;font-size:13.5px}
+.drop-s{font-size:12px;color:var(--muted);margin-top:2px}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px;margin-top:12px}
+.thumb{position:relative;aspect-ratio:1;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:var(--surface2)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb button{
+  position:absolute;top:3px;right:3px;width:19px;height:19px;border-radius:5px;border:0;
+  background:rgba(16,19,18,.62);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0;
+}
+.thumb button .ic{width:12px;height:12px}
+/* ---------- palette / style ---------- */
+.pal{display:flex;gap:0;height:44px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.pal span{flex:1;position:relative}
+.pal span i{position:absolute;inset:auto 0 0 0;font-size:9.5px;font-style:normal;text-align:center;padding:3px 0;background:rgba(255,255,255,.78);color:#222;font-weight:600}
+.kv{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px dashed var(--line2)}
+.kv:last-child{border-bottom:0}
+.kv dt{font-size:12.5px;color:var(--muted);font-weight:600}
+.kv dd{margin:0;font-size:13.2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:var(--surface2);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:11.8px;color:var(--ink2)}
+.promptbox{
+  background:#0F1412;color:#DCE7E1;border-radius:var(--r);padding:14px 15px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.3px;
+  line-height:1.75;white-space:pre-wrap;word-break:break-word;max-height:330px;overflow:auto;
+}
+.promptbox.on-light{background:var(--surface2);color:var(--ink2);border:1px solid var(--line)}
+.empty{
+  border:1px dashed var(--line);border-radius:var(--r);padding:34px 18px;
+  text-align:center;color:var(--muted);font-size:13px;background:var(--surface2);
+}
+.empty .ic{width:22px;height:22px;margin:0 auto 9px;color:#A9B4AE}
+/* ---------- library ---------- */
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:14px}
+.lib-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.lib-body{padding:12px 13px 13px;display:flex;flex-direction:column;gap:9px;flex:1}
+.lib-name{font-weight:650;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.dots{display:flex;gap:3px}
+.dots i{width:12px;height:12px;border-radius:3px;display:block;border:1px solid rgba(0,0,0,.07)}
+.lib-actions{display:flex;gap:6px;margin-top:auto;padding-top:2px}
+/* ---------- studio ---------- */
+.picklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:9px;max-height:262px;overflow:auto;padding:2px}
+.pick{
+  border:1px solid var(--line);border-radius:var(--r);padding:0;overflow:hidden;background:var(--surface);
+  cursor:pointer;text-align:left;transition:.14s;
+}
+.pick:hover{border-color:#C4CEC8}
+.pick[aria-pressed="true"]{border-color:var(--green);box-shadow:0 0 0 2px #D9F2E7}
+.pick .pick-name{font-size:12.4px;font-weight:600;padding:7px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.canvas-wrap{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface2)}
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(16,19,18,.5);display:none;place-items:center;padding:22px;z-index:50}
+.modal.open{display:grid}
+.modal-box{background:var(--surface);border-radius:var(--r);width:min(760px,100%);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.modal-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.modal-b{padding:18px;overflow:auto}
+.modal-f{padding:14px 18px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,16px);
+  background:var(--ink);color:#fff;padding:10px 16px;border-radius:var(--r);
+  font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:.22s;z-index:90;
+  display:flex;align-items:center;gap:8px;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast .ic{width:16px;height:16px;color:#5CE0A8}
+@media (max-width:900px){
+  .grid2{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:780px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .rail{
+    position:sticky;top:0;height:auto;flex-direction:row;align-items:center;gap:6px;
+    padding:9px 12px;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);z-index:20;
+  }
+  .brand{padding:0 10px 0 2px;flex:0 0 auto}
+  .brand-text{display:none}
+  .navlabel,.rail-foot{display:none}
+  .nav-btn{width:auto;white-space:nowrap;padding:7px 11px;font-size:13px}
+  .main{padding:18px 15px 52px}
+  .main-title{font-size:19px}
+  .lib{grid-template-columns:minmax(0,1fr)}
+  .kv{grid-template-columns:70px minmax(0,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="rail" id="rail"></nav>
+  <main class="main">
+    <div class="main-head">
+      <div>
+        <h1 class="main-title" id="vTitle">饲养画风</h1>
+        <p class="main-desc" id="vDesc"></p>
+      </div>
+      <div class="head-actions">
+        <button class="btn sm" data-open="agent"></button>
+      </div>
+    </div>
+    <div id="view"></div>
+  </main>
+</div>
+<div class="modal" id="agentModal">
+  <div class="modal-box">
+    <div class="modal-h">
+      <h3>智能体设定</h3>
+      <button class="btn ghost" data-close>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-b">
+      <div class="promptbox on-light" id="agentText"></div>
+    </div>
+    <div class="modal-f">
+      <button class="btn" id="agentDownload"></button>
+      <button class="btn primary" id="agentCopy"></button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const ICONS = {
+  imagePlus:'<path d="M16 5h6"/><path d="M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+  palette:'<circle cx="13.5" cy="6.5" r=".6" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.83-.44-1.12-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/>',
+  bulb:'<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  library:'<path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/>',
+  wand:'<path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h.01"/><path d="M17.8 6.2 19 5"/><path d="M3 21l9-9"/><path d="M12.2 6.2 11 5"/>',
+  sparkles:'<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>',
+  settings:'<path d="M12.2 2h-.4a2 2 0 0 0-2 2v.2a2 2 0 0 1-1 1.7l-.4.3a2 2 0 0 1-2 0l-.2-.1a2 2 0 0 0-2.7.7l-.2.4a2 2 0 0 0 .7 2.7l.2.1a2 2 0 0 1 1 1.7v.5a2 2 0 0 1-1 1.7l-.2.1a2 2 0 0 0-.7 2.7l.2.4a2 2 0 0 0 2.7.7l.2-.1a2 2 0 0 1 2 0l.4.3a2 2 0 0 1 1 1.7v.2a2 2 0 0 0 2 2h.4a2 2 0 0 0 2-2v-.2a2 2 0 0 1 1-1.7l.4-.3a2 2 0 0 1 2 0l.2.1a2 2 0 0 0 2.7-.7l.2-.4a2 2 0 0 0-.7-2.7l-.2-.1a2 2 0 0 1-1-1.7v-.5a2 2 0 0 1 1-1.7l.2-.1a2 2 0 0 0 .7-2.7l-.2-.4a2 2 0 0 0-2.7-.7l-.2.1a2 2 0 0 1-2 0l-.4-.3a2 2 0 0 1-1-1.7V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>',
+  copy:'<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
+  trash:'<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+  download:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+  upload:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  x:'<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  plus:'<path d="M5 12h14"/><path d="M12 5v14"/>',
+  arrow:'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  heart:'<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/>',
+  layers:'<path d="M12.8 2.2a2 2 0 0 0-1.7 0L2.6 6.1a1 1 0 0 0 0 1.8l8.6 3.9a2 2 0 0 0 1.6 0l8.6-3.9a1 1 0 0 0 0-1.8z"/><path d="m22 17.6-9.2 4.2a2 2 0 0 1-1.6 0L2 17.6"/><path d="m22 12.6-9.2 4.2a2 2 0 0 1-1.6 0L2 12.6"/>'
+};
+function ic(n, cls){ return '<svg class="ic ' + (cls || '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[n] || '') + '</svg>'; }
+const KEY = 'ndhf.styles.v1';
+const store = {
+  styles: [],
+  load(){
+    try { this.styles = JSON.parse(localStorage.getItem(KEY) || '[]'); }
+    catch(e){ this.styles = []; }
+    if(!Array.isArray(this.styles)) this.styles = [];
+  },
+  save(){
+    try { localStorage.setItem(KEY, JSON.stringify(this.styles)); } catch(e){}
+  },
+  add(s){ this.styles.unshift(s); if(this.styles.length > 40) this.styles.length = 40; this.save(); },
+  remove(id){ this.styles = this.styles.filter(s => s.id !== id); this.save(); },
+  get(id){ return this.styles.find(s => s.id === id) || null; }
+};
+function clamp(v, a, b){ return Math.min(b, Math.max(a, v)); }
+function rgbToHex(r, g, b){
+  return '#' + [r, g, b].map(v => clamp(Math.round(v), 0, 255).toString(16).padStart(2, '0')).join('');
+}
+function hexToRgb(h){
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(h);
+  return m ? [parseInt(m[1],16), parseInt(m[2],16), parseInt(m[3],16)] : [0,0,0];
+}
+function hexA(h, a){
+  const c = hexToRgb(h);
+  return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')';
+}
+function rgbToHsl(r, g, b){
+  r/=255; g/=255; b/=255;
+  const mx = Math.max(r,g,b), mn = Math.min(r,g,b);
+  let h = 0, s = 0; const l = (mx+mn)/2;
+  if(mx !== mn){
+    const d = mx-mn;
+    s = l > .5 ? d/(2-mx-mn) : d/(mx+mn);
+    if(mx === r) h = ((g-b)/d + (g < b ? 6 : 0));
+    else if(mx === g) h = (b-r)/d + 2;
+    else h = (r-g)/d + 4;
+    h *= 60;
+  }
+  return [h, s, l];
+}
+function lum(r,g,b){ return (0.2126*r + 0.7152*g + 0.0722*b) / 255; }
+function mulberry(seed){
+  let a = seed >>> 0;
+  return function(){
+    a += 0x6D2B79F5;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function hashStr(s){
+  let h = 2166136261;
+  for(let i = 0; i < s.length; i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return Math.abs(h) || 7;
+}
+function kmeans(samples, k){
+  const iters = 14;
+  if(!samples.length) return [];
+  k = Math.min(k, samples.length);
+  const centers = [];
+  const step = Math.max(1, Math.floor(samples.length / k));
+  for(let i = 0; i < k; i++) centers.push(samples[Math.min(samples.length-1, i*step)].slice());
+  const assign = new Array(samples.length).fill(0);
+  for(let it = 0; it < iters; it++){
+    const sums = centers.map(() => [0,0,0,0]);
+    for(let i = 0; i < samples.length; i++){
+      let best = 0, bd = Infinity;
+      for(let c = 0; c < centers.length; c++){
+        const dr = samples[i][0]-centers[c][0], dg = samples[i][1]-centers[c][1], db = samples[i][2]-centers[c][2];
+        const d = dr*dr + dg*dg + db*db;
+        if(d < bd){ bd = d; best = c; }
+      }
+      assign[i] = best;
+      sums[best][0] += samples[i][0]; sums[best][1] += samples[i][1];
+      sums[best][2] += samples[i][2]; sums[best][3]++;
+    }
+    for(let c = 0; c < centers.length; c++){
+      if(sums[c][3] > 0) centers[c] = [sums[c][0]/sums[c][3], sums[c][1]/sums[c][3], sums[c][2]/sums[c][3]];
+    }
+  }
+  const counts = new Array(centers.length).fill(0);
+  assign.forEach(a => counts[a]++);
+  return centers
+    .map((c, i) => ({ hex: rgbToHex(c[0], c[1], c[2]), rgb: c, count: counts[i] }))
+    .sort((a, b) => b.count - a.count);
+}
+const HUES = [
+  {max:15,  name:'红'}, {max:40,  name:'橙'}, {max:65,  name:'黄'}, {max:100, name:'黄绿'},
+  {max:155, name:'绿'}, {max:190, name:'青'}, {max:250, name:'蓝'}, {max:290, name:'紫'},
+  {max:330, name:'品红'}, {max:361, name:'红'}
+];
+function hueName(h){ for(const x of HUES){ if(h < x.max) return x.name; } return '红'; }
+function describe(a){
+  const light = a.avgL < .30 ? {label:'低照度暗调', desc:'整体压暗、亮部克制，靠局部高光透气'}
+              : a.avgL < .48 ? {label:'沉稳中低调', desc:'大面积中性明度，光线收敛，质感偏内敛'}
+              : a.avgL < .66 ? {label:'柔和中间调', desc:'明暗过渡平缓，光线散射均匀，没有生硬高光'}
+              :                {label:'明亮高调', desc:'整体通透提亮，暗部很浅，空气感强'};
+  const tone = a.avgS < .16 ? {label:'近中性低饱和', desc:'色彩克制、几乎去色，靠明度和质感叙事'}
+             : a.avgS < .38 ? {label:'中等饱和', desc:'色彩自然不刺眼，留有呼吸感'}
+             : a.avgS < .60 ? {label:'饱和明快', desc:'色彩表达主动，色块之间有呼应'}
+             :                {label:'浓烈高饱和', desc:'色彩本身就是主角，对比强烈、情绪外放'};
+  const temp = a.warm > a.cool * 1.25 ? {label:'整体偏暖', desc:'暖色占据主导，画面有温度'}
+             : a.cool > a.warm * 1.25 ? {label:'整体偏冷', desc:'冷色占据主导，画面克制清冽'}
+             :                          {label:'冷暖对比', desc:'冷暖色并置，靠色温差制造层次'};
+  const contrast = a.contrast < .11 ? {label:'低反差', desc:'光影边界柔糊，过渡绵密'}
+                 : a.contrast < .19 ? {label:'中等反差', desc:'明暗关系清楚但不锐利'}
+                 :                    {label:'强反差', desc:'明暗对撞明显，轮廓和体积感突出'};
+  const grain = a.contrast > .19 ? '细节清晰度高，边缘锐利，颗粒感弱' : '细节较柔和，带有轻微颗粒与噪点';
+  return {light, tone, temp, contrast, grain};
+}
+async function analyzeFiles(files){
+  const samples = [];
+  const thumbs = [];
+  for(const f of files){
+    const dataUrl = await readFile(f);
+    const img = await loadImg(dataUrl);
+    const c = document.createElement('canvas');
+    const S = 72;
+    c.width = S; c.height = S;
+    const ctx = c.getContext('2d', {willReadFrequently:true});
+    ctx.drawImage(img, 0, 0, S, S);
+    const d = ctx.getImageData(0, 0, S, S).data;
+    for(let i = 0; i < d.length; i += 4){
+      if(d[i+3] < 200) continue;
+      samples.push([d[i], d[i+1], d[i+2]]);
+    }
+    thumbs.push(await makeThumb(img));
+  }
+  if(!samples.length) throw new Error('empty');
+  const palette = kmeans(samples, 5);
+  let sl = 0, ss = 0, warm = 0, cool = 0;
+  const lums = [];
+  samples.forEach(p => {
+    const hsl = rgbToHsl(p[0], p[1], p[2]);
+    sl += hsl[2]; ss += hsl[1];
+    lums.push(lum(p[0], p[1], p[2]));
+    if(hsl[2] > .10 && hsl[1] > .08){
+      const h = hsl[0];
+      if(h < 70 || h > 320) warm++;
+      else if(h > 165 && h < 285) cool++;
+    }
+  });
+  const n = samples.length;
+  const mean = lums.reduce((a,b) => a+b, 0) / n;
+  const variance = lums.reduce((a,b) => a + (b-mean)*(b-mean), 0) / n;
+  const domHsl = rgbToHsl(palette[0].rgb[0], palette[0].rgb[1], palette[0].rgb[2]);
+  return {
+    palette, thumbs,
+    avgL: sl/n, avgS: ss/n,
+    contrast: Math.sqrt(variance),
+    warm, cool,
+    domHue: hueName(domHsl[0]),
+    sampleCount: n
+  };
+}
+function readFile(f){
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsDataURL(f);
+  });
+}
+function loadImg(src){
+  return new Promise((res, rej) => {
+    const i = new Image();
+    i.onload = () => res(i);
+    i.onerror = rej;
+    i.src = src;
+  });
+}
+function makeThumb(img){
+  const M = 260;
+  const scale = Math.min(M/img.width, M/img.height, 1);
+  const c = document.createElement('canvas');
+  c.width = Math.round(img.width*scale);
+  c.height = Math.round(img.height*scale);
+  c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+  return c.toDataURL('image/jpeg', 0.58);
+}
+function paintBoard(canvas, palette, ratio, seed, withGrain){
+  const W = Math.max(320, Math.round(canvas.dataset.w ? +canvas.dataset.w : 760));
+  const H = Math.round(W / ratio);
+  canvas.width = W; canvas.height = H;
+  canvas.style.width = '100%';
+  canvas.style.height = 'auto';
+  const ctx = canvas.getContext('2d');
+  const cols = (palette && palette.length) ? palette : ['#DFE5E2', '#B7C2BC'];
+  const g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, cols[0]);
+  g.addColorStop(.5, cols[Math.min(1, cols.length-1)]);
+  g.addColorStop(1, cols[cols.length-1]);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const rnd = mulberry(seed || 11);
+  for(let i = 0; i < 16; i++){
+    const col = cols[Math.floor(rnd()*cols.length)];
+    const x = rnd()*W, y = rnd()*H;
+    const r = (0.16 + rnd()*0.5) * Math.max(W, H) * 0.5;
+    const rg = ctx.createRadialGradient(x, y, 0, x, y, r);
+    rg.addColorStop(0, hexA(col, .52));
+    rg.addColorStop(1, hexA(col, 0));
+    ctx.fillStyle = rg;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI*2); ctx.fill();
+  }
+  const vg = ctx.createRadialGradient(W/2, H/2, Math.min(W,H)*0.22, W/2, H/2, Math.max(W,H)*0.72);
+  vg.addColorStop(0, 'rgba(0,0,0,0)');
+  vg.addColorStop(1, 'rgba(0,0,0,0.30)');
+  ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+  if(withGrain){
+    const imgd = ctx.getImageData(0, 0, W, H), d = imgd.data;
+    for(let i = 0; i < d.length; i += 4){
+      const nz = (rnd() - .5) * 24;
+      d[i] += nz; d[i+1] += nz; d[i+2] += nz;
+    }
+    ctx.putImageData(imgd, 0, 0);
+  }
+}
+function paintAll(scope){
+  $$('canvas[data-pal]', scope || document).forEach(cv => {
+    if(cv.dataset.done === '1') return;
+    let pal = [];
+    try { pal = JSON.parse(cv.dataset.pal); } catch(e){ pal = []; }
+    const ratio = cv.dataset.ratio ? evalRatio(cv.dataset.ratio) : 1.6;
+    paintBoard(cv, pal, ratio, +(cv.dataset.seed || 11), cv.dataset.nograin !== '1');
+    cv.dataset.done = '1';
+  });
+}
+function evalRatio(r){
+  const parts = String(r).split(':').map(Number);
+  return (parts[0] && parts[1]) ? parts[0]/parts[1] : 1;
+}
+const TEXTURES = ['胶片颗粒','水彩晕染','厚涂笔触','3D 渲染','手绘线稿','极简扁平','低多边形','像素风','玻璃拟态','长曝光光绘','丝网印刷','金属光泽'];
+const MOODS = ['治愈','复古','未来感','热血','安静','童话','赛博','清爽','神秘','元气','慵懒','浪漫'];
+const RATIOS = ['1:1','4:3','3:4','16:9','9:16'];
+const USES = ['团建配图','活动海报','文化简报插图','工会宣传素材','趣味物料','个人收藏'];
+function styleWords(st){
+  const d = describe(st.analysis);
+  return [st.name, d.tone.label, d.temp.label, d.light.label].filter(Boolean).join(' · ');
+}
+function composePrompt(st, opt){
+  opt = opt || {};
+  const d = describe(st.analysis);
+  const lines = [];
+  lines.push('风格命名：' + (st.name || '未命名画风'));
+  lines.push('风格范式：' + d.tone.label + '，' + d.temp.label + '，' + d.contrast.label + '，' + (st.textures.join('、') || '干净写实'));
+  lines.push('光影关系：' + d.light.desc + '；' + (st.moods.join('、') ? '整体情绪' + st.moods.join('、') : '光线稳定可控'));
+  lines.push('色调质感：' + st.analysis.palette.map(p => p.hex).join(' / ') + '；主色相' + st.analysis.domHue + '，' + d.tone.desc);
+  lines.push('场景氛围：' + (st.moods.join('、') || '自然日常') + '，' + d.grain);
+  if(opt.subject) lines.push('画面主体：' + opt.subject);
+  if(opt.use)     lines.push('使用用途：' + opt.use);
+  lines.push('画面比例：' + (opt.ratio || '1:1'));
+  const one = [
+    d.tone.label + '、' + d.temp.label, d.light.label, d.contrast.label,
+    (st.textures.join('、') || '干净写实'),
+    opt.subject ? '主体：' + opt.subject : '',
+    (st.moods.join('、') || ''),
+    '比例 ' + (opt.ratio || '1:1')
+  ].filter(Boolean).join('，');
+  lines.push('');
+  lines.push('成片提示词：' + one + '。');
+  return lines.join('\n');
+}
+const SCENES = ['清晨的旧巷口','雨后的天台','深夜便利店','被绿植包围的阳台','云海之上的车站','午后图书馆靠窗的位置','霓虹闪烁的街角','开满野花的山坡','热闹的夜市摊','安静的地铁车厢','下雪的公交站台','摆满旧书的阁楼'];
+const ACTIONS = ['抱着膝盖望向远方','伸手接住落下的光斑','低头整理被风吹乱的衣角','举起相机缓缓对焦','踮脚去够高处的风铃','把帽子压得很低','与身边的小动物对视','捧着一杯冒热气的东西','在人群里回头一笑','把伞向同伴那边倾了倾'];
+const EMOTIONS = ['淡淡的怀念','藏不住的雀跃','安静的松弛','一点点的倔强','被治愈的暖意','若有若无的孤独','孩童般的好奇','笃定的平静'];
+const COMPS = ['中景，主体落在左三分线上','低角度仰拍，留出大面积天空','俯视视角，前景有遮挡物','对称构图，视线居中','大特写，背景虚化成色块','广角环境人像，人物占比很小','前景虚化框架构图','背影视角，留白三分之二'];
+const LIGHTS = ['清晨侧逆光，空气里有浮尘','黄昏金色顶光，拉出长投影','阴天柔和散射光，几乎没有影子','夜晚霓虹反射光，冷暖交织','月光冷调环境光，轮廓光勾边','窗口自然光，明暗对比干净'];
+function pickN(arr, n, seed){
+  const out = [], used = new Set();
+  let x = seed % 2147483647;
+  let guard = 0;
+  while(out.length < n && used.size < arr.length && guard++ < 500){
+    x = (x * 1103515245 + 12345) % 2147483648;
+    const i = x % arr.length;
+    if(!used.has(i)){ used.add(i); out.push(arr[i]); }
+  }
+  return out;
+}
+function hatchIdea(text, moods, count){
+  const seed = hashStr(text + moods.join(''));
+  const scenes = pickN(SCENES, count, seed);
+  const actions = pickN(ACTIONS, count, seed + 991);
+  const emotions = pickN(EMOTIONS, count, seed + 313);
+  const comps = pickN(COMPS, count, seed + 77);
+  const lights = pickN(LIGHTS, count, seed + 522);
+  const out = [];
+  for(let i = 0; i < count; i++){
+    const mood = moods.length ? moods.join('、') : emotions[i];
+    out.push({
+      subject: text, scene: scenes[i], action: actions[i], emotion: emotions[i],
+      comp: comps[i], light: lights[i], mood,
+      prompt: text + '。' + scenes[i] + '，' + actions[i] + '，情绪' + emotions[i] +
+              '。' + comps[i] + '，' + lights[i] + '。整体氛围' + mood + '，画面统一、干净、有故事感。'
+    });
+  }
+  return out;
+}
+function deriveAnalysisFromHex(palette, seed){
+  const rgb = palette.map(hexToRgb);
+  let sl = 0, ss = 0, warm = 0, cool = 0;
+  const lums = [];
+  rgb.forEach(p => {
+    const hsl = rgbToHsl(p[0], p[1], p[2]);
+    sl += hsl[2]; ss += hsl[1];
+    lums.push(lum(p[0], p[1], p[2]));
+    if(hsl[2] > .10 && hsl[1] > .08){
+      if(hsl[0] < 70 || hsl[0] > 320) warm++;
+      else if(hsl[0] > 165 && hsl[0] < 285) cool++;
+    }
+  });
+  const n = rgb.length;
+  const mean = lums.reduce((a,b) => a+b, 0)/n;
+  const variance = lums.reduce((a,b) => a + (b-mean)*(b-mean), 0)/n;
+  const dom = rgbToHsl(rgb[0][0], rgb[0][1], rgb[0][2]);
+  return {
+    palette: palette.map((hex, i) => ({hex, rgb: rgb[i], count: n - i})),
+    thumbs: [],
+    avgL: sl/n, avgS: ss/n,
+    contrast: Math.sqrt(variance),
+    warm, cool,
+    domHue: hueName(dom[0]),
+    sampleCount: 0
+  };
+}
+function presetStyles(){
+  const mk = (name, palette, tex, mood, seed) => ({
+    id: uid(), name, seed, palette,
+    textures: tex, moods: mood, refs: [],
+    analysis: deriveAnalysisFromHex(palette, seed),
+    builtin: true, createdAt: Date.now()
+  });
+  return [
+    mk('晨雾胶片', ['#E9E5DB','#C3CCBC','#8C9A86','#57614F','#2C332A'], ['胶片颗粒'], ['安静','复古','清爽'], 20261),
+    mk('赛博夜市', ['#1B1038','#5A1FD1','#FF2E88','#12D9FF','#FFC24B'], ['长曝光光绘','玻璃拟态'], ['赛博','未来感','热血'], 88213),
+    mk('水彩童话', ['#FDF7EF','#FFD9C0','#FFB3A7','#A8DADC','#5B7DB1'], ['水彩晕染','手绘线稿'], ['童话','治愈','浪漫'], 41777)
+  ];
+}
+const TABS = [
+  {id:'feed',    label:'饲养画风', icon:'imagePlus', title:'饲养画风', desc:'参考图 → 画风档案'},
+  {id:'idea',    label:'脑洞孵化', icon:'bulb',      title:'脑洞孵化', desc:'灵感 → 画面脚本'},
+  {id:'library', label:'画风库',   icon:'library',   title:'画风库',   desc:'个人私有画风资产'},
+  {id:'studio',  label:'作品工坊', icon:'wand',      title:'作品工坊', desc:'画风 × 主体 → 成片提示词'}
+];
+let tab = 'feed';
+const feed = { refs: [], thumbs: [], textures: ['胶片颗粒'], moods: ['治愈'] };
+const ideaState = { moods: [], count: 3, results: null };
+const studio = { styleId: null, ratio: '1:1', subject: '' };
+let lastExtract = null;
+const AGENT_MD = [
+'# 角色',
+'你是「脑洞 & 画风饲养员」，一名轻量化 AI 视觉创作助手，归属“元气玩咖：AI 生活趣味分享”赛道。',
+'你的任务是把普通人天马行空的脑洞，饲养、沉淀成可复用的个人画风资产。',
+'',
+'# 背景',
+'通用 AI 绘图工具存在提示词门槛高、生成效果不稳定、风格难以统一的问题，普通用户往往要反复调试才能得到满意结果。',
+'本智能体解决的就是“不用会写提示词，也能稳定复刻自己的画风”。',
+'',
+'# 核心能力',
+'1. 画风萃取：接收用户上传的成套参考图与文字描述，从风格范式、光影关系、色调质感、场景氛围四个维度做结构化解析，输出「画风档案」。',
+'2. 脑洞孵化：把一句粗糙灵感扩写成完整画面脚本，包含主体、场景、动作、情绪、构图、光线。',
+'3. 画风复刻：调用用户已沉淀的画风档案，搭配简单文字描述，生成成片提示词，支持多内容、多尺寸、多用途。',
+'4. 画风资产管理：帮助用户命名、归类、整理、分享个人私有画风。',
+'',
+'# 工作原则',
+'1. 不要求用户懂提示词工程，用问答式引导补齐关键信息，一次最多追问两个问题。',
+'2. 画风资产归用户个人所有，默认私有，只有用户明确同意才对外分享。',
+'3. 尊重原创与版权，不模仿在世艺术家的个人风格，只描述可公开的风格范式（媒介、光影、色彩、质感、构图）。',
+'4. 不编造用户没有提供的参考图信息；图片细节无法判断时直说，并提示用户补充描述。',
+'5. 输出稳定、结构化、可复制；每条提示词都能直接用于主流绘图工具。',
+'',
+'# 输出模板｜画风档案',
+'风格命名：',
+'风格范式：',
+'光影关系：',
+'色调质感：',
+'场景氛围：',
+'关键词：',
+'成片提示词：',
+'',
+'# 输出模板｜成片提示词',
+'遵循结构：风格 + 主体 + 场景 + 动作/情绪 + 构图 + 光线 + 画质 + 尺寸。',
+'',
+'# 语气',
+'简洁、有画面感的中文；结构化信息用小标题，不写空话和套话。'
+].join('\n');
+function renderRail(){
+  $('#rail').innerHTML =
+    '<div class="brand">' +
+      '<div class="brand-mark">' + ic('sparkles') + '</div>' +
+      '<div class="brand-text">' +
+        '<div class="brand-name">脑洞 &amp; 画风饲养员</div>' +
+        '<div class="brand-sub">AI 视觉创作助手</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="navlabel">工作台</div>' +
+    TABS.map(t =>
+      '<button class="nav-btn" data-tab="' + t.id + '" aria-current="' + (tab === t.id) + '">' +
+        ic(t.icon) + '<span>' + t.label + '</span>' +
+      '</button>'
+    ).join('') +
+    '<div class="rail-foot">' +
+      '<div class="rail-stat">' + ic('layers') + '<span>画风资产 <b>' + store.styles.length + '</b> 个</span></div>' +
+    '</div>';
+  $$('#rail [data-tab]').forEach(b => b.addEventListener('click', () => setTab(b.dataset.tab)));
+}
+function setTab(id){
+  tab = id;
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function render(){
+  const meta = TABS.find(t => t.id === tab);
+  $('#vTitle').textContent = meta.title;
+  $('#vDesc').textContent = meta.desc;
+  renderRail();
+  $('#view').innerHTML = ({ feed: viewFeed, idea: viewIdea, library: viewLibrary, studio: viewStudio })[tab]();
+  ({ feed: bindFeed, idea: bindIdea, library: bindLibrary, studio: bindStudio })[tab]();
+  paintAll($('#view'));
+}
+function chipsHTML(list, sel){
+  return list.map(x => '<button class="chip" data-chip="' + esc(x) + '" aria-pressed="' + sel.includes(x) + '">' + esc(x) + '</button>').join('');
+}
+function paletteHTML(analysis){
+  return '<div class="pal">' + analysis.palette.map(p =>
+    '<span style="background:' + p.hex + '"><i>' + p.hex.replace('#','').toUpperCase() + '</i></span>'
+  ).join('') + '</div>';
+}
+function viewFeed(){
+  return '<div class="grid2">' +
+    '<section class="card">' +
+      '<div class="card-h">' + ic('imagePlus') + '<h3>参考图</h3></div>' +
+      '<div class="drop" id="drop">' + ic('upload') +
+        '<div class="drop-t">拖入或点击上传参考图</div>' +
+        '<div class="drop-s">同一套画风建议 3 张以上</div>' +
+      '</div>' +
+      '<input type="file" id="fileInput" accept="image/*" multiple hidden>' +
+      '<div class="thumbs" id="thumbs"></div>' +
+      '<div class="field" style="margin-top:14px"><label>画风名字</label>' +
+        '<input type="text" id="styleName" placeholder="例如：晨雾胶片" maxlength="18"></div>' +
+      '<div class="field"><label>质感</label><div class="chips" id="texChips">' + chipsHTML(TEXTURES, feed.textures) + '</div></div>' +
+      '<div class="field"><label>氛围</label><div class="chips" id="moodChips">' + chipsHTML(MOODS, feed.moods) + '</div></div>' +
+      '<div class="row"><button class="btn primary" id="extract">' + ic('sparkles') + '开始萃取</button>' +
+        '<button class="btn danger" id="clearRefs">' + ic('trash') + '清空参考图</button></div>' +
+    '</section>' +
+    '<section class="card" id="extractPanel">' + extractPanelHTML() + '</section>' +
+  '</div>';
+}
+function extractPanelHTML(){
+  if(!lastExtract){
+    return '<div class="empty">' + ic('palette') +
+      '暂无画风档案</div>';
+  }
+  const a = lastExtract.analysis;
+  const d = describe(a);
+  const text = composePrompt(lastExtract);
+  return '<div class="card-h">' + ic('palette') + '<h3>' + esc(lastExtract.name) + '</h3></div>' +
+    '<div class="stack">' +
+      paletteHTML(a) +
+      '<dl style="margin:0">' +
+        '<div class="kv"><dt>风格范式</dt><dd>' + d.tone.label + '，' + d.temp.label + '，' + d.contrast.label + '</dd></div>' +
+        '<div class="kv"><dt>光影关系</dt><dd>' + d.light.label + '｜' + d.light.desc + '</dd></div>' +
+        '<div class="kv"><dt>色调质感</dt><dd>主色相' + a.domHue + '｜' + d.tone.desc + '</dd></div>' +
+        '<div class="kv"><dt>场景氛围</dt><dd>' + esc(lastExtract.moods.join('、') || '未设置') + '｜' + d.grain + '</dd></div>' +
+        '<div class="kv"><dt>采样</dt><dd>' + a.sampleCount.toLocaleString() + ' 个像素点 · ' + a.palette.length + ' 色主色板</dd></div>' +
+      '</dl>' +
+      '<div class="tags">' + lastExtract.keywords.map(k => '<span class="tag">' + esc(k) + '</span>').join('') + '</div>' +
+      '<div><div class="hint" style="margin-bottom:6px">成片提示词</div><div class="promptbox" id="extractPrompt">' + esc(text) + '</div></div>' +
+      '<div class="row">' +
+        '<button class="btn primary" id="saveStyle">' + ic('check') + '保存到画风库</button>' +
+        '<button class="btn" data-copy="extractPrompt">' + ic('copy') + '复制提示词</button>' +
+        '<button class="btn" id="toStudio">' + ic('arrow') + '去工坊</button>' +
+      '</div>' +
+    '</div>';
+}
+function bindFeed(){
+  const drop = $('#drop'), input = $('#fileInput');
+  if(!drop) return;
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+  drop.addEventListener('drop', e => {
+    e.preventDefault(); drop.classList.remove('over');
+    const files = Array.from(e.dataTransfer.files || []).filter(f => f.type.indexOf('image/') === 0);
+    if(!files.length) return;
+    feed.refs = feed.refs.concat(files).slice(0, 8);
+    renderThumbs();
+  });
+  input.addEventListener('change', () => {
+    const files = Array.from(input.files || []);
+    feed.refs = feed.refs.concat(files).slice(0, 8);
+    input.value = '';
+    renderThumbs();
+  });
+  $$('#texChips .chip').forEach(c => c.addEventListener('click', () => toggle(feed.textures, c.dataset.chip, c)));
+  $$('#moodChips .chip').forEach(c => c.addEventListener('click', () => toggle(feed.moods, c.dataset.chip, c)));
+  $('#clearRefs').addEventListener('click', () => { feed.refs = []; feed.thumbs = []; renderThumbs(); });
+  $('#extract').addEventListener('click', doExtract);
+  renderThumbs();
+  bindExtractPanel();
+}
+function bindExtractPanel(){
+  const save = $('#saveStyle');
+  if(save) save.addEventListener('click', () => { store.add(lastExtract); toast('已保存到画风库'); renderRail(); });
+  const to = $('#toStudio');
+  if(to) to.addEventListener('click', () => {
+    if(!store.get(lastExtract.id)) store.add(lastExtract);
+    studio.styleId = lastExtract.id;
+    setTab('studio');
+  });
+  $$('#extractPanel [data-copy]').forEach(b => b.addEventListener('click', () => copyText($('#' + b.dataset.copy).textContent, '提示词已复制')));
+}
+function toggle(arr, v, el){
+  const i = arr.indexOf(v);
+  if(i >= 0) arr.splice(i, 1); else arr.push(v);
+  el.setAttribute('aria-pressed', i < 0);
+}
+function renderThumbs(){
+  const box = $('#thumbs');
+  if(!box) return;
+  box.innerHTML = feed.refs.map((f, i) =>
+    '<div class="thumb"><img src="' + (feed.thumbs[i] || '') + '" alt=""><button data-del="' + i + '">' + ic('x') + '</button></div>'
+  ).join('');
+  $$('#thumbs [data-del]').forEach(b => b.addEventListener('click', e => {
+    e.stopPropagation();
+    const i = +b.dataset.del;
+    feed.refs.splice(i, 1); feed.thumbs.splice(i, 1);
+    renderThumbs();
+  }));
+}
+async function doExtract(){
+  if(!feed.refs.length){ toast('先上传参考图'); return; }
+  const btn = $('#extract');
+  btn.disabled = true;
+  btn.innerHTML = ic('sparkles') + '正在萃取…';
+  try{
+    const a = await analyzeFiles(feed.refs);
+    feed.thumbs = a.thumbs;
+    const name = ($('#styleName').value || '').trim() || ('未命名画风 ' + new Date().toLocaleDateString('zh-CN'));
+    const d = describe(a);
+    const kw = Array.from(new Set([a.domHue + '调', d.tone.label, d.temp.label, d.light.label, d.contrast.label].concat(feed.textures, feed.moods)));
+    lastExtract = {
+      id: uid(), name, seed: hashStr(name + JSON.stringify(a.palette)),
+      palette: a.palette.map(p => p.hex),
+      textures: feed.textures.slice(), moods: feed.moods.slice(),
+      keywords: kw, refs: a.thumbs.slice(0, 4), analysis: a,
+      createdAt: Date.now()
+    };
+    $('#extractPanel').innerHTML = extractPanelHTML();
+    bindExtractPanel();
+    renderThumbs();
+    toast('画风档案已生成');
+  }catch(err){
+    toast('图片读取失败，换几张试试');
+  }finally{
+    btn.disabled = false;
+    btn.innerHTML = ic('sparkles') + '开始萃取';
+  }
+}
+function viewIdea(){
+  return '<div class="grid2">' +
+    '<section class="card">' +
+      '<div class="card-h">' + ic('bulb') + '<h3>灵感碎片</h3></div>' +
+      '<div class="field"><label>描述你的脑洞</label>' +
+        '<textarea id="ideaInput" placeholder="一句话就够了，例如：一只加班的猫在便利店买关东煮"></textarea></div>' +
+      '<div class="field"><label>情绪基调</label><div class="chips" id="ideaMoods">' + chipsHTML(MOODS, ideaState.moods) + '</div></div>' +
+      '<div class="field"><label>孵化数量</label>' +
+        '<div class="seg" id="ideaCount">' +
+          [3,5].map(n => '<button data-n="' + n + '" aria-pressed="' + (ideaState.count === n) + '">' + n + ' 个变体</button>').join('') +
+        '</div></div>' +
+      '<div class="row"><button class="btn primary" id="hatch">' + ic('sparkles') + '孵化脑洞</button></div>' +
+    '</section>' +
+    '<section class="card" id="ideaPanel">' + ideaPanelHTML() + '</section>' +
+  '</div>';
+}
+function ideaPanelHTML(){
+  if(!ideaState.results){
+    return '<div class="empty">' + ic('sparkles') + '还没有孵化结果<br><span class="hint">写下一句灵感，点击「孵化脑洞」</span></div>';
+  }
+  return '<div class="card-h">' + ic('sparkles') + '<h3>画面脚本</h3></div>' +
+    '<div class="stack">' + ideaState.results.map((r, i) =>
+      '<div class="card" style="margin:0;background:var(--surface2)">' +
+        '<div class="card-h"><h3 style="font-size:13.5px">变体 ' + (i+1) + '</h3></div>' +
+        '<dl style="margin:0">' +
+          '<div class="kv"><dt>主体</dt><dd>' + esc(r.subject) + '</dd></div>' +
+          '<div class="kv"><dt>场景</dt><dd>' + esc(r.scene) + '</dd></div>' +
+          '<div class="kv"><dt>动作情绪</dt><dd>' + esc(r.action) + '｜' + esc(r.emotion) + '</dd></div>' +
+          '<div class="kv"><dt>构图</dt><dd>' + esc(r.comp) + '</dd></div>' +
+          '<div class="kv"><dt>光线</dt><dd>' + esc(r.light) + '</dd></div>' +
+        '</dl>' +
+        '<div class="promptbox on-light" id="ideaP' + i + '" style="margin:10px 0">' + esc(r.prompt) + '</div>' +
+        '<div class="row">' +
+          '<button class="btn sm" data-copy="ideaP' + i + '">' + ic('copy') + '复制</button>' +
+          '<button class="btn sm" data-to-studio="' + i + '">' + ic('arrow') + '去工坊</button>' +
+        '</div>' +
+      '</div>'
+    ).join('') + '</div>';
+}
+function bindIdea(){
+  const btn = $('#hatch');
+  if(!btn) return;
+  $$('#ideaMoods .chip').forEach(c => c.addEventListener('click', () => toggle(ideaState.moods, c.dataset.chip, c)));
+  $$('#ideaCount button').forEach(b => b.addEventListener('click', () => {
+    ideaState.count = +b.dataset.n;
+    $$('#ideaCount button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  }));
+  btn.addEventListener('click', () => {
+    const text = ($('#ideaInput').value || '').trim();
+    if(!text){ toast('先写一句灵感'); return; }
+    ideaState.results = hatchIdea(text, ideaState.moods, ideaState.count);
+    $('#ideaPanel').innerHTML = ideaPanelHTML();
+    bindIdeaPanel();
+    toast('孵化出 ' + ideaState.count + ' 个画面脚本');
+  });
+  bindIdeaPanel();
+}
+function bindIdeaPanel(){
+  $$('#ideaPanel [data-copy]').forEach(b => b.addEventListener('click', () => copyText($('#' + b.dataset.copy).textContent, '脚本已复制')));
+  $$('#ideaPanel [data-to-studio]').forEach(b => b.addEventListener('click', () => {
+    const r = ideaState.results[+b.dataset.toStudio];
+    studio.subject = r.subject + '。' + r.scene + '，' + r.action;
+    setTab('studio');
+  }));
+}
+function viewLibrary(){
+  if(!store.styles.length){
+    return '<div class="empty">' + ic('library') + '画风库还是空的<br>' +
+      '<span class="hint">去「饲养画风」上传参考图，或载入预置画风</span>' +
+      '<div class="row" style="justify-content:center;margin-top:14px"><button class="btn primary" id="seedPresets">' + ic('plus') + '载入预置画风</button></div></div>';
+  }
+  return '<div class="row" style="justify-content:space-between;margin-bottom:14px">' +
+      '<span class="hint">共 ' + store.styles.length + ' 个画风资产，保存在本机浏览器</span>' +
+      '<div class="row">' +
+        '<button class="btn sm" id="exportAll">' + ic('download') + '导出全部</button>' +
+        '<button class="btn sm danger" id="clearAll">' + ic('trash') + '清空</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="lib">' + store.styles.map(styleCardHTML).join('') + '</div>';
+}
+function styleCardHTML(s){
+  const d = describe(s.analysis);
+  return '<article class="lib-card">' +
+    '<canvas data-pal="' + esc(JSON.stringify(s.palette)) + '" data-seed="' + s.seed + '" data-w="440" data-ratio="16:9"></canvas>' +
+    '<div class="lib-body">' +
+      '<div class="lib-name"><span>' + esc(s.name) + '</span>' +
+        '<span class="dots">' + s.palette.slice(0,5).map(p => '<i style="background:' + p + '"></i>').join('') + '</span></div>' +
+      '<div class="tags">' +
+        [d.tone.label, d.temp.label, s.textures[0], s.moods[0]].filter(Boolean).map(k => '<span class="tag">' + esc(k) + '</span>').join('') +
+      '</div>' +
+      '<div class="lib-actions">' +
+        '<button class="btn sm" data-apply="' + s.id + '">' + ic('wand') + '应用</button>' +
+        '<button class="btn sm" data-copy-style="' + s.id + '">' + ic('copy') + '提示词</button>' +
+        '<button class="btn sm ghost" data-share="' + s.id + '">' + ic('heart') + '</button>' +
+        '<button class="btn sm ghost danger" data-del-style="' + s.id + '">' + ic('trash') + '</button>' +
+      '</div>' +
+    '</div>' +
+  '</article>';
+}
+function bindLibrary(){
+  const seedBtn = $('#seedPresets');
+  if(seedBtn) seedBtn.addEventListener('click', () => { presetStyles().forEach(s => store.add(s)); render(); });
+  $$('[data-apply]').forEach(b => b.addEventListener('click', () => { studio.styleId = b.dataset.apply; setTab('studio'); }));
+  $$('[data-copy-style]').forEach(b => b.addEventListener('click', () => {
+    const s = store.get(b.dataset.copyStyle);
+    copyText(composePrompt(s), '「' + s.name + '」提示词已复制');
+  }));
+  $$('[data-share]').forEach(b => b.addEventListener('click', () => {
+    const s = store.get(b.dataset.share);
+    copyText('【画风分享】' + s.name + '\n' + styleWords(s) + '\n色板：' + s.palette.join(' ') + '\n关键词：' + s.keywords.join('、'), '分享卡片已复制');
+  }));
+  $$('[data-del-style]').forEach(b => b.addEventListener('click', () => {
+    store.remove(b.dataset.delStyle);
+    if(studio.styleId === b.dataset.delStyle) studio.styleId = null;
+    render();
+  }));
+  const ex = $('#exportAll');
+  if(ex) ex.addEventListener('click', () => download('画风资产包.json', JSON.stringify(store.styles, null, 2), 'application/json'));
+  const cl = $('#clearAll');
+  if(cl) cl.addEventListener('click', () => { store.styles = []; store.save(); render(); toast('画风库已清空'); });
+}
+function viewStudio(){
+  const sel = store.get(studio.styleId);
+  const ratio = studio.ratio;
+  const prompt = sel ? composePrompt(sel, {subject: studio.subject, ratio: ratio}) : '';
+  return '<div class="grid2">' +
+    '<section class="card">' +
+      '<div class="card-h">' + ic('layers') + '<h3>画风模板</h3></div>' +
+      (store.styles.length
+        ? '<div class="picklist">' + store.styles.map(s =>
+            '<button class="pick" data-pick="' + s.id + '" aria-pressed="' + (studio.styleId === s.id) + '">' +
+              '<canvas data-pal="' + esc(JSON.stringify(s.palette)) + '" data-seed="' + s.seed + '" data-w="300" data-ratio="16:9" data-nograin="1"></canvas>' +
+              '<div class="pick-name">' + esc(s.name) + '</div>' +
+            '</button>').join('') + '</div>'
+        : '<div class="empty">' + ic('library') + '画风库还是空的<br><span class="hint">先去饲养一个画风</span></div>') +
+      '<div class="field" style="margin-top:16px"><label>画面主体</label>' +
+        '<textarea id="studioSubject" placeholder="例如：同事们在楼下打羽毛球">' + esc(studio.subject) + '</textarea></div>' +
+      '<div class="field"><label>画面比例</label><div class="seg" id="ratioSeg">' +
+        RATIOS.map(r => '<button data-ratio="' + r + '" aria-pressed="' + (ratio === r) + '">' + r + '</button>').join('') +
+      '</div></div>' +
+      '<div class="field"><label>使用用途</label><select id="useSel">' +
+        USES.map(u => '<option>' + u + '</option>').join('') + '</select></div>' +
+      '<div class="row"><button class="btn primary" id="gen" ' + (sel ? '' : 'disabled') + '>' + ic('wand') + '生成提示词</button></div>' +
+    '</section>' +
+    '<section class="card">' +
+      '<div class="card-h">' + ic('wand') + '<h3>成片方案</h3></div>' +
+      (sel
+        ? '<div class="stack">' +
+            '<div class="canvas-wrap"><canvas id="board" data-pal="' + esc(JSON.stringify(sel.palette)) + '" data-seed="' + sel.seed + '" data-w="760" data-ratio="' + ratio + '"></canvas></div>' +
+            '<div class="row" style="justify-content:space-between"><span class="hint">' + esc(sel.name) + ' · ' + ratio + '</span><span class="hint">' + sel.palette.map(p => p.replace('#','')).join(' ') + '</span></div>' +
+            '<div class="promptbox" id="studioPrompt">' + esc(prompt) + '</div>' +
+            '<div class="row"><button class="btn primary" data-copy="studioPrompt">' + ic('copy') + '复制成片提示词</button>' +
+              '<button class="btn" id="regen">' + ic('sparkles') + '刷新预览</button></div>' +
+          '</div>'
+        : '<div class="empty">' + ic('wand') + '先在左侧选一个画风模板</div>') +
+    '</section>' +
+  '</div>';
+}
+function bindStudio(){
+  const subj = $('#studioSubject');
+  if(!subj) return;
+  subj.addEventListener('input', () => { studio.subject = subj.value; });
+  $$('[data-pick]').forEach(b => b.addEventListener('click', () => { studio.styleId = b.dataset.pick; render(); }));
+  $$('#ratioSeg button').forEach(b => b.addEventListener('click', () => { studio.ratio = b.dataset.ratio; render(); }));
+  const gen = $('#gen');
+  if(gen) gen.addEventListener('click', () => {
+    const sel = store.get(studio.styleId);
+    if(!sel) return;
+    $('#studioPrompt').textContent = composePrompt(sel, {subject: studio.subject, ratio: studio.ratio, use: $('#useSel').value});
+    toast('成片提示词已更新');
+  });
+  const re = $('#regen');
+  if(re) re.addEventListener('click', () => {
+    const sel = store.get(studio.styleId);
+    sel.seed = (sel.seed * 48271) % 2147483647;
+    store.save();
+    render();
+    toast('预览已刷新');
+  });
+  $$('[data-copy]').forEach(b => b.addEventListener('click', () => copyText($('#' + b.dataset.copy).textContent, '提示词已复制')));
+}
+let toastTimer;
+function toast(msg){
+  const t = $('#toast');
+  t.innerHTML = ic('check') + '<span>' + esc(msg) + '</span>';
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 1900);
+}
+function copyText(text, msg){
+  const done = () => toast(msg || '已复制');
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch(e){}
+  document.body.removeChild(ta);
+  done();
+}
+function download(name, text, type){
+  const b = new Blob([text], {type: type || 'text/plain;charset=utf-8'});
+  const u = URL.createObjectURL(b);
+  const a = document.createElement('a');
+  a.href = u; a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(u), 1500);
+}
+function boot(){
+  store.load();
+  $('#agentText').textContent = AGENT_MD;
+  $('#agentCopy').innerHTML = ic('copy') + '复制设定';
+  $('#agentDownload').innerHTML = ic('download') + '下载 .md';
+  $('#agentCopy').addEventListener('click', () => copyText(AGENT_MD, '智能体设定已复制'));
+  $('#agentDownload').addEventListener('click', () => download('脑洞画风饲养员-智能体设定.md', AGENT_MD));
+  $('#agentModal').addEventListener('click', e => {
+    if(e.target.id === 'agentModal' || e.target.closest('[data-close]')) $('#agentModal').classList.remove('open');
+  });
+  $$('[data-open="agent"]').forEach(b => {
+    b.innerHTML = ic('settings') + '智能体设定';
+    b.addEventListener('click', () => $('#agentModal').classList.add('open'));
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') $('#agentModal').classList.remove('open');
+    if(e.key === 'Enter' && (e.metaKey || e.ctrlKey)){
+      if(tab === 'idea' && $('#hatch')) $('#hatch').click();
+      if(tab === 'feed' && $('#extract')) $('#extract').click();
+    }
+  });
+  render();
+}
+boot();
+</script>
+</body>
+</html>
