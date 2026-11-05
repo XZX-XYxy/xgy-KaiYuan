@@ -1,0 +1,26 @@
+[
+  {
+    "device_id": "DEV-AGITATOR-01",
+    "event_id": "EVT-TEMP-001",
+    "occurred_at": "2026-10-29T08:00:00+08:00",
+    "ingested_at": "2026-10-29T08:00:03+08:00",
+    "telemetry_name": "temperature",
+    "value": 86.4
+  },
+  {
+    "device_id": "DEV-AGITATOR-01",
+    "event_id": "EVT-TEMP-001",
+    "occurred_at": "2026-10-29T08:00:02+08:00",
+    "ingested_at": "2026-10-29T08:00:05+08:00",
+    "telemetry_name": "temperature",
+    "value": 86.7
+  },
+  {
+    "device_id": "DEV-AGITATOR-01",
+    "event_id": "EVT-VIB-021",
+    "occurred_at": "2026-10-29T08:00:06+08:00",
+    "ingested_at": "2026-10-29T08:02:11+08:00",
+    "telemetry_name": "vibration",
+    "value": 8.2
+  }
+]

@@ -1,0 +1,19 @@
+services:
+  thingsboard:
+    image: thingsboard/tb-postgres:latest
+    container_name: tb-maintenance
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+      - "1883:1883"
+      - "7070:7070"
+      - "5683-5684:5683-5684/udp"
+    environment:
+      TB_QUEUE_TYPE: in-memory
+    volumes:
+      - thingsboard-data:/data
+      - thingsboard-logs:/var/log/thingsboard
+
+volumes:
+  thingsboard-data:
+  thingsboard-logs:
