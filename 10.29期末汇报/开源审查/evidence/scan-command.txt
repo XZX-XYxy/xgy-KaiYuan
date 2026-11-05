@@ -1,0 +1,36 @@
+ScanCode Toolkit license audit reproduction
+==========================================
+
+Target
+------
+Project: Apache Commons CSV
+Tag: rel/commons-csv-1.14.1
+Commit: e14ef86d34211f9d1b9b6040c5f6dbafc93ba907
+URL: https://github.com/apache/commons-csv
+
+Environment
+-----------
+ScanCode Toolkit: 32.5.0
+Output format: 4.1.0
+SPDX license list: 3.27
+Python: 3.13.15
+Platform: Windows 11 x64
+
+1. Clone the exact release tag
+-------------------------------
+git clone --depth 1 --branch rel/commons-csv-1.14.1 https://github.com/apache/commons-csv.git commons-csv-1.14.1
+
+2. Run ScanCode
+---------------
+scancode -clpieu -n 4 ^
+  --json-pp commons-csv-1.14.1-scan.json ^
+  --csv commons-csv-1.14.1-scan.csv ^
+  --html commons-csv-1.14.1-scan.html ^
+  commons-csv-1.14.1
+
+Notes
+-----
+- Four processes are used because the 16 GB Windows host produced MemoryError during license index loading when ScanCode used the default 15 processes.
+- ScanCode 32.5.0 reports a non-blocking deprecation warning for the legacy CSV output.
+- The scan completed with 0 file-level errors.
+- GitHub's default archive layout contains 120 tracked files. ScanCode inventories 118 because it skips .gitignore and .gitattributes by default.
