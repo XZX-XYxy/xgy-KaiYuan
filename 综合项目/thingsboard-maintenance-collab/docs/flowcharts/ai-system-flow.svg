@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs>
+<marker id="arrow-signal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#FFB454"/></marker>
+<marker id="arrow-ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#63D8FF"/></marker>
+<marker id="arrow-human" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#72E0A8"/></marker>
+<marker id="arrow-safety" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#FF6B6B"/></marker>
+<filter id="core-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="10" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1800" height="1100" fill="#07131F"/>
+<path d="M 0 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 50 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 100 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 150 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 200 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 250 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 300 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 350 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 400 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 450 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 500 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 550 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 600 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 650 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 700 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 750 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 800 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 850 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 900 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 950 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1000 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1050 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1100 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1150 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1200 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1250 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1300 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1350 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1400 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1450 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1500 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1550 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1600 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1650 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1700 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1750 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 1800 0 V 1100" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 0 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 50 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 100 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 150 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 200 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 250 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 300 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 350 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 400 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 450 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 500 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 550 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 600 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 650 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 700 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 750 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 800 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 850 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 900 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 950 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 1000 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 1050 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<path d="M 0 1100 H 1800" stroke="#123247" stroke-opacity="0.22"/>
+<text x="55" y="29" font-family="Consolas, Microsoft YaHei, Segoe UI, Arial" font-size="11" letter-spacing="2" fill="#63D8FF">AI-AUGMENTED MAINTENANCE / FLOW 02</text>
+<text x="55" y="67" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="31" font-weight="800" fill="#F4F8FB">AI 证据核 · 人机协同闭环</text>
+<text x="55" y="94" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="13" fill="#94A9BA">AI 只处理授权后的证据；人保留归并、工单、停机与复产的最终决定权。</text>
+<rect x="1210" y="26" width="178" height="34" rx="17" fill="#0A3042" stroke="#63D8FF"/>
+<text x="1299" y="48" text-anchor="middle" font-family="Consolas, Arial" font-size="10" font-weight="700" fill="#63D8FF">AI · READ ONLY</text>
+<rect x="1400" y="26" width="176" height="34" rx="17" fill="#0C3028" stroke="#72E0A8"/>
+<text x="1488" y="48" text-anchor="middle" font-family="Consolas, Arial" font-size="10" font-weight="700" fill="#72E0A8">HUMAN · AUTHORITY</text>
+<rect x="1588" y="26" width="160" height="34" rx="17" fill="#351A20" stroke="#FF6B6B"/>
+<text x="1668" y="48" text-anchor="middle" font-family="Consolas, Arial" font-size="10" font-weight="700" fill="#FF6B6B">CONTROL · BLOCKED</text>
+<rect x="45" y="140" width="440" height="605" rx="20" fill="#0A1B29" stroke="#2A4B60"/>
+<rect x="505" y="140" width="740" height="605" rx="20" fill="#081C2C" stroke="#1C506C"/>
+<rect x="1265" y="140" width="490" height="605" rx="20" fill="#0A1F2B" stroke="#2B6850"/>
+<rect x="45" y="780" width="1710" height="205" rx="20" fill="#0A1D28" stroke="#2B5D50"/>
+<text x="72" y="174" font-family="Consolas, Microsoft YaHei, Arial" font-size="13" font-weight="700" fill="#FFB454">01 / SIGNAL IN</text>
+<text x="532" y="174" font-family="Consolas, Microsoft YaHei, Arial" font-size="13" font-weight="700" fill="#63D8FF">02 / AI EVIDENCE CORE</text>
+<text x="1292" y="174" font-family="Consolas, Microsoft YaHei, Arial" font-size="13" font-weight="700" fill="#72E0A8">03 / HUMAN AUTHORITY</text>
+<text x="72" y="810" font-family="Consolas, Microsoft YaHei, Arial" font-size="13" font-weight="700" fill="#72E0A8">04 / CLOSED LOOP</text>
+<rect x="70" y="195" width="360" height="72" rx="13" fill="#0B2232" stroke="#FFB454" stroke-opacity="0.60" stroke-width="1.4"/><rect x="70" y="195" width="5" height="72" rx="2.5" fill="#FFB454"/><circle cx="91" cy="216" r="11" fill="#FFB454"/><text x="91" y="220" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">01</text><text x="110" y="225" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">传感器 / PLC / 边缘网关</text><text x="110" y="246" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">温度 · 振动 · 电流 · 断联缓存</text><text x="110" y="262" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">采集时间、时区与原始上下行均保留</text>
+<rect x="70" y="300" width="360" height="72" rx="13" fill="#0B2232" stroke="#FFB454" stroke-opacity="0.60" stroke-width="1.4"/><rect x="70" y="300" width="5" height="72" rx="2.5" fill="#FFB454"/><circle cx="91" cy="321" r="11" fill="#FFB454"/><text x="91" y="325" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">02</text><text x="110" y="330" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">ThingsBoard 遥测与告警</text><text x="110" y="351" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">原始值 · 规则命中 · 告警事件</text><text x="110" y="367" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">occurrence / ingest / cycle 分字段保存</text>
+<rect x="70" y="405" width="360" height="72" rx="13" fill="#0B2232" stroke="#FFB454" stroke-opacity="0.60" stroke-width="1.4"/><rect x="70" y="405" width="5" height="72" rx="2.5" fill="#FFB454"/><circle cx="91" cy="426" r="11" fill="#FFB454"/><text x="91" y="430" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">03</text><text x="110" y="435" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">身份 / 时间 / 权限闸门</text><text x="110" y="456" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">外号 → 铭牌号 → canonical_asset</text><text x="110" y="472" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">资产组校验通过后才允许进入 AI</text>
+<rect x="70" y="510" width="360" height="82" rx="13" fill="#0B2232" stroke="#FFB454" stroke-opacity="0.60" stroke-width="1.4"/><rect x="70" y="510" width="5" height="82" rx="2.5" fill="#FFB454"/><circle cx="91" cy="531" r="11" fill="#FFB454"/><text x="91" y="535" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">04</text><text x="110" y="540" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">原始事件与候选组</text><text x="110" y="561" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">device + event_id · 缺 ID 进入待核</text><text x="110" y="577" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">原始告警逐条保留 · 任一归并可回退</text>
+<path d="M 250 267 V 295" stroke="#FFB454" stroke-width="2" marker-end="url(#arrow-signal)"/>
+<path d="M 250 372 V 400" stroke="#FFB454" stroke-width="2" marker-end="url(#arrow-signal)"/>
+<path d="M 250 477 V 505" stroke="#FFB454" stroke-width="2" marker-end="url(#arrow-signal)"/>
+<path d="M 430 551 H 540" stroke="#FFB454" stroke-width="2.2" marker-end="url(#arrow-signal)"/>
+<rect x="95" y="640" width="310" height="66" rx="11" fill="#102A39" stroke="#FFB454" stroke-opacity="0.5"/>
+<text x="250" y="663" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="11" font-weight="700" fill="#FFB454">不可变证据底座</text>
+<text x="250" y="683" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10" fill="#9EB3C4">原遥测 · 原告警 · 首末发生时间 · 补传时间</text>
+<circle cx="875" cy="390" r="188" fill="none" stroke="#63D8FF" stroke-opacity="0.12" stroke-dasharray="3 8"/>
+<polygon points="1015.3,309.0 1015.3,471.0 875.0,552.0 734.7,471.0 734.7,309.0 875.0,228.0" fill="none" stroke="#63D8FF" stroke-opacity="0.20" stroke-width="1.2"/>
+<polygon points="989.3,324.0 989.3,456.0 875.0,522.0 760.7,456.0 760.7,324.0 875.0,258.0" fill="#0B3045" stroke="#63D8FF" stroke-width="2.2" filter="url(#core-glow)"/>
+<path d="M 780 390 H 970" stroke="#63D8FF" stroke-opacity="0.25"/>
+<path d="M 875 300 V 480" stroke="#63D8FF" stroke-opacity="0.16"/>
+<text x="875" y="365" text-anchor="middle" font-family="Consolas, Arial" font-size="17" font-weight="700" fill="#63D8FF">AI EVIDENCE CORE</text>
+<text x="875" y="393" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="13" font-weight="700" fill="#F4F8FB">重复候选 · 新事件提示</text>
+<text x="875" y="417" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="11" fill="#A9C9DA">原始引用 · 差异解释 · 置信度 · 不确定性</text>
+<rect x="545" y="180" width="210" height="72" rx="13" fill="#0B2232" stroke="#63D8FF" stroke-opacity="0.60" stroke-width="1.4"/><rect x="545" y="180" width="5" height="72" rx="2.5" fill="#63D8FF"/><text x="565" y="210" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">规则护栏</text><text x="565" y="231" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">设备 + 事件 ID 优先</text><text x="565" y="247" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">缺 ID 永不自动合并</text>
+<rect x="995" y="180" width="210" height="72" rx="13" fill="#0B2232" stroke="#FF6B6B" stroke-opacity="0.60" stroke-width="1.4"/><rect x="995" y="180" width="5" height="72" rx="2.5" fill="#FF6B6B"/><text x="1015" y="210" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">控制护栏</text><text x="1015" y="231" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">无停机 / 启动 / 复产</text><text x="1015" y="247" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">无告警关闭 / 工单写入</text>
+<rect x="540" y="535" width="220" height="82" rx="13" fill="#0B2232" stroke="#63D8FF" stroke-opacity="0.60" stroke-width="1.4"/><rect x="540" y="535" width="5" height="82" rx="2.5" fill="#63D8FF"/><circle cx="561" cy="556" r="11" fill="#63D8FF"/><text x="561" y="560" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">05</text><text x="580" y="565" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">上下文包</text><text x="580" y="586" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">遥测窗口 · 手册版本 · 历史工单</text><text x="580" y="602" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">备件 · 未结事项 · 资产权限</text>
+<rect x="995" y="535" width="210" height="82" rx="13" fill="#0B2232" stroke="#63D8FF" stroke-opacity="0.60" stroke-width="1.4"/><rect x="995" y="535" width="5" height="82" rx="2.5" fill="#63D8FF"/><text x="1015" y="565" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">证据包</text><text x="1015" y="586" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">每条结论必须引用</text><text x="1015" y="602" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">来源 / 时间 / 事件 ID</text>
+<path d="M 760 576 C 800 540 820 500 846 486" fill="none" stroke="#63D8FF" stroke-width="2" marker-end="url(#arrow-ai)"/>
+<path d="M 1010 390 H 1070" fill="none" stroke="#63D8FF" stroke-width="2.2" marker-end="url(#arrow-ai)"/>
+<circle cx="650" cy="390" r="4" fill="#63D8FF"/>
+<circle cx="1100" cy="390" r="4" fill="#63D8FF"/>
+<path d="M 650 390 H 710" stroke="#63D8FF" stroke-opacity="0.55"/>
+<path d="M 1040 390 H 1100" stroke="#63D8FF" stroke-opacity="0.55"/>
+<path d="M 875 235 V 260" stroke="#63D8FF" stroke-opacity="0.55"/>
+<path d="M 875 520 V 545" stroke="#63D8FF" stroke-opacity="0.55"/>
+<rect x="1070" y="330" width="165" height="120" rx="14" fill="#102A39" stroke="#63D8FF" stroke-width="1.6"/>
+<text x="1152" y="355" text-anchor="middle" font-family="Consolas, Arial" font-size="10" font-weight="700" fill="#63D8FF">EVIDENCE GATE</text>
+<text x="1152" y="380" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="12" font-weight="700" fill="#F4F8FB">07 输出校验</text>
+<text x="1152" y="402" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="9.5" fill="#9EB3C4">证据 · 权限 · 禁控</text>
+<text x="1152" y="422" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="9.5" fill="#9EB3C4">失败 → 人工 / 降级</text>
+<path d="M 1235 390 H 1320" fill="none" stroke="#63D8FF" stroke-width="2" marker-end="url(#arrow-ai)"/>
+<path d="M 1278 230 V 675" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="9 8"/>
+<rect x="1245" y="620" width="67" height="24" rx="12" fill="#351A20" stroke="#FF6B6B"/>
+<text x="1278" y="636" text-anchor="middle" font-family="Consolas, Arial" font-size="8.5" font-weight="700" fill="#FF6B6B">FIREWALL</text>
+<rect x="1070" y="680" width="165" height="52" rx="10" fill="#351A20" stroke="#FF6B6B"/>
+<text x="1152" y="702" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="9.5" font-weight="700" fill="#FF6B6B">AI → 设备控制</text>
+<text x="1152" y="720" text-anchor="middle" font-family="Consolas, Arial" font-size="10" font-weight="700" fill="#FF6B6B">BLOCKED</text>
+<rect x="1320" y="192" width="398" height="52" rx="12" fill="#0C3028" stroke="#72E0A8"/>
+<text x="1519" y="214" text-anchor="middle" font-family="Consolas, Arial" font-size="10" font-weight="700" fill="#72E0A8">HUMAN-IN-THE-LOOP / AUTHORIZED</text>
+<text x="1519" y="232" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10" fill="#9ECDB7">AI 只能送证据，不能替人做不可逆决定</text>
+<rect x="1320" y="265" width="398" height="70" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="1320" y="265" width="5" height="70" rx="2.5" fill="#72E0A8"/><circle cx="1341" cy="286" r="11" fill="#72E0A8"/><text x="1341" y="290" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">08</text><text x="1360" y="295" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">人工评审队列</text><text x="1360" y="316" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">原遥测 · 候选组 · AI 理由 · 引用 · 权限</text>
+<rect x="1320" y="360" width="398" height="70" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="1320" y="360" width="5" height="70" rx="2.5" fill="#72E0A8"/><circle cx="1341" cy="381" r="11" fill="#72E0A8"/><text x="1341" y="385" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">09</text><text x="1360" y="390" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">现场核实</text><text x="1360" y="411" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">设备状态 · 传感器漂移 · 新事件确认</text>
+<rect x="1320" y="455" width="398" height="70" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="1320" y="455" width="5" height="70" rx="2.5" fill="#72E0A8"/><circle cx="1341" cy="476" r="11" fill="#72E0A8"/><text x="1341" y="480" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">10</text><text x="1360" y="485" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">人工决策</text><text x="1360" y="506" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">接受 / 拒绝 / 拆分 / 回退 / 升级</text>
+<rect x="1320" y="550" width="398" height="74" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="1320" y="550" width="5" height="74" rx="2.5" fill="#72E0A8"/><circle cx="1341" cy="571" r="11" fill="#72E0A8"/><text x="1341" y="575" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">11</text><text x="1360" y="580" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">受控写操作闸门</text><text x="1360" y="601" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">仅人工点击 · 幂等 · 审批 · 全程留痕</text>
+<path d="M 1519 335 V 355" stroke="#72E0A8" stroke-width="2" marker-end="url(#arrow-human)"/>
+<path d="M 1519 430 V 450" stroke="#72E0A8" stroke-width="2" marker-end="url(#arrow-human)"/>
+<path d="M 1519 525 V 545" stroke="#72E0A8" stroke-width="2" marker-end="url(#arrow-human)"/>
+<path d="M 1519 624 V 800" stroke="#72E0A8" stroke-width="2.2" marker-end="url(#arrow-human)"/>
+<rect x="1330" y="830" width="310" height="72" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="1330" y="830" width="5" height="72" rx="2.5" fill="#72E0A8"/><circle cx="1351" cy="851" r="11" fill="#72E0A8"/><text x="1351" y="855" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">12</text><text x="1370" y="860" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">工单资料包</text><text x="1370" y="881" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">异常事件 · 手册版本 · 备件 · 停机窗口</text>
+<rect x="1010" y="830" width="270" height="72" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="1010" y="830" width="5" height="72" rx="2.5" fill="#72E0A8"/><circle cx="1031" cy="851" r="11" fill="#72E0A8"/><text x="1031" y="855" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">13</text><text x="1050" y="860" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">维修完成</text><text x="1050" y="881" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">措施 · 工时 · 遗留事项</text>
+<rect x="690" y="830" width="270" height="72" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="690" y="830" width="5" height="72" rx="2.5" fill="#72E0A8"/><circle cx="711" cy="851" r="11" fill="#72E0A8"/><text x="711" y="855" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">14</text><text x="730" y="860" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">恢复产出确认</text><text x="730" y="881" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">独立人工签字 · 不自动复产</text>
+<polygon points="455,816 565,866 455,916 345,866" fill="#3A2E12" stroke="#FFB454" stroke-width="2"/><circle cx="363" cy="834" r="10" fill="#FFB454"/><text x="363" y="838" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">15</text><text x="455" y="862" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="13" font-weight="700" fill="#F4F8FB">已恢复？</text><text x="455" y="882" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="9" fill="#D5C18E">遥测 + 人工</text>
+<rect x="175" y="945" width="230" height="58" rx="13" fill="#0B2232" stroke="#72E0A8" stroke-opacity="0.60" stroke-width="1.4"/><rect x="175" y="945" width="5" height="58" rx="2.5" fill="#72E0A8"/><circle cx="196" cy="966" r="11" fill="#72E0A8"/><text x="196" y="970" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">16</text><text x="215" y="975" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">关闭 / 归档</text><text x="215" y="996" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">保留完整证据</text>
+<rect x="455" y="945" width="250" height="58" rx="13" fill="#0B2232" stroke="#FF6B6B" stroke-opacity="0.60" stroke-width="1.4"/><rect x="455" y="945" width="5" height="58" rx="2.5" fill="#FF6B6B"/><circle cx="476" cy="966" r="11" fill="#FF6B6B"/><text x="476" y="970" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="700" fill="#07131F">17</text><text x="495" y="975" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="14" font-weight="700" fill="#F4F8FB">保持打开 / 升级</text><text x="495" y="996" text-anchor="start" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.3" fill="#9EB3C4">继续检修或上报</text>
+<path d="M 1485 624 V 824" stroke="#72E0A8" stroke-width="2.2" marker-end="url(#arrow-human)"/>
+<path d="M 1330 866 H 1285" stroke="#72E0A8" stroke-width="2" marker-end="url(#arrow-human)"/>
+<path d="M 1010 866 H 965" stroke="#72E0A8" stroke-width="2" marker-end="url(#arrow-human)"/>
+<path d="M 690 866 H 570" stroke="#72E0A8" stroke-width="2" marker-end="url(#arrow-human)"/>
+<path d="M 390 905 V 918 H 290 V 940" stroke="#72E0A8" stroke-width="2" marker-end="url(#arrow-human)"/>
+<path d="M 520 905 V 918 H 580 V 940" stroke="#FF6B6B" stroke-width="2" marker-end="url(#arrow-safety)"/>
+<text x="307" y="930" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10" font-weight="700" fill="#72E0A8">是</text>
+<text x="552" y="930" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10" font-weight="700" fill="#FF6B6B">否</text>
+<rect x="72" y="1018" width="1658" height="38" rx="10" fill="#102A39" stroke="#72E0A8" stroke-opacity="0.65" stroke-dasharray="7 5"/>
+<text x="900" y="1042" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, Arial" font-size="10.5" fill="#A8DADC">审计反馈闭环：AI 建议 · 人工决定 · 回退原因 · 检修结果 · 恢复证据 → 离线评测集，不自动改模型或规则</text>
+<path d="M 75 1037 H 31 V 111 H 526" fill="none" stroke="#72E0A8" stroke-width="1.5" stroke-dasharray="7 6" marker-end="url(#arrow-human)"/>
+<text x="43" y="610" transform="rotate(-90 43 610)" text-anchor="middle" font-family="Consolas, Arial" font-size="9" fill="#72E0A8">OFFLINE FEEDBACK LOOP</text>
+</svg>
